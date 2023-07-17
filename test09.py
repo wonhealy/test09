@@ -25,7 +25,7 @@ menu.display() # menu.display();
 #      매출보기.
 
 
-menu = Menu()  # Menu 클래스의 인스턴스 생성
+ # Menu 클래스의 인스턴스 생성
 
 while True:
     choice = input("작업 선택 (M: 메뉴관리, 0: 주문관리, S: 매출관리, Enter/Space: 종료): ")
@@ -45,7 +45,7 @@ while True:
             elif menu_choice == "" or menu_choice.isspace():  # 메뉴관리 종료
                 break
 
-    elif choice == "0":  # 주문관리 작업 선택
+    elif choice == "0":  # 주문관리
         while True:
             order_choice = input("주문 작업 선택 (0: 주문하기, R: 주문내역 보기, Enter/Space: 주문관리 종료): ")
 
@@ -58,9 +58,16 @@ while True:
             elif order_choice == "" or order_choice.isspace():  # 주문관리 종료
                 break
 
-    elif choice.upper() == "S":  # 매출관리
-        # 매출보기 로직 추가
-        pass
+    elif choice.upper() == "S":
+        print("----- 매출보기 -----")
+        total_sales = 0
+        for sale in total_sales:
+            print(f"메뉴: {sale['menu']} / 가격: {sale['price']}원")
+            total_sales += sale['price']
+        print("총 매출액:", total_sales)
 
     elif choice == "" or choice.isspace():  # 종료
         break
+
+
+print('카페관리 프로그램 종료')
